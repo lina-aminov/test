@@ -1,0 +1,8 @@
+{"items": [
+		{"Steak": 9.99},
+		{"Chips": 5},
+		{"Burger": 20.99},
+		{"Pie and Chips": 15.99},
+		{"Fish and Chips": 12.99}
+     ]
+}
