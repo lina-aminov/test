@@ -1,0 +1,49 @@
+CREATE TABLE IF NOT EXISTS MedicalRecords(
+    MedicalRecordsID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Patient_ID INTEGER references patients,
+    Allergies VarChar(25),
+    Previous_Condition VarChar(30),
+    Previous_Medication VarChar(30),
+    Vaccines VarChar (30),
+    Previous_Appointments VarChar(50),
+    FOREIGN KEY (Patient_ID) REFERENCES patients (Patient_id)
+ 
+);
+ 
+CREATE TABLE IF NOT EXISTS GP (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    appointment_id INT NOT NULL,
+    Allergies VARCHAR(25),
+    PreviousCondition VARCHAR(30),
+    PreviousMedication VARCHAR(30),
+    GP_name VARCHAR(100) NOT NULL,
+    GP_address VARCHAR(120) NOT NULL,
+    FOREIGN KEY (appointment_id) REFERENCES Appointment (appointment_id)
+    FOREIGN KEY (Allergies) REFERENCES MedicalRecords (Allergies)
+    FOREIGN KEY (PreviousCondition) REFERENCES MedicalRecords (PreviousCondition)
+    FOREIGN KEY (PreviousMedication) REFERENCES MedicalRecords (PreviousMedication)
+);
+ 
+CREATE TABLE  IF NOT EXISTS Appointment (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    gp_id INTEGER REFERENCES gp,
+    patient_id INTEGER REFERENCES patients,
+    appointment_date_time DATETIME,
+    room INTEGER NOT NULL,
+    start_time TIME,
+    end_time TIME,
+    FOREIGN KEY (gp_id) REFERENCES gp (id)
+    FOREIGN KEY (patient_id) REFERENCES patients (id)
+ 
+);
+ 
+CREATE TABLE IF NOT EXISTS patients (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Patient_id NOT NULL,
+    First_Name TEXT NOT NULL,
+    Last_Name TEXT NOT NULL,
+    DOB NUM NOT NULL,
+    Address TEXT NOT NULL,
+    Contact_number  NOT NULL,
+    Appointment_id NOT NULL
+);
