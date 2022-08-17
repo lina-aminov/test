@@ -45,5 +45,8 @@ CREATE TABLE IF NOT EXISTS patients (
 
 
 --INSERT INTO Appointment VALUES (NULL, NULL, NULL, '2022-08-13', '03', '8:30:00', '8:50:00');
-INSERT INTO patients (id, patient_id, first_name, last_name, DOB, address, contact_number, appointment_id)
-VALUES ('1', '1', 'Francesca', 'Akhtar', '03-05-1954', '50 Stroude Road, Silfield, NR18 4YS', '07748051499', '1');
+
+ 
+ 
+--INSERT into patients (id, patient_id, first_name, last_name, DOB, address, contact_number, appointment_id) VALUES ('6', '6', 'Aimee', 'Hamilton', '18-05-1961', '29 Essex Road, Tangwick, ZE2 7XS', '07902845965', '6');
+ 
